@@ -4,7 +4,8 @@ import * as Font from "expo-font";
 import { AppLoading } from "expo";
 import MealNavigator from "./navigation/MealNavigator";
 import { Provider } from "react-redux";
-import {rootReducer} from './redux/reducer'
+import { createStore } from "redux";
+import { rootReducer } from "./redux/reducer";
 
 const fetchFont = () => {
   return Font.loadAsync({
@@ -23,8 +24,10 @@ export default function App() {
       <AppLoading startAsync={fetchFont} onFinish={() => setLoadFont(true)} />
     );
 
-  return (<Provider store = {store}>
-    <MealNavigator /></Provider>
+  return (
+    <Provider store={store}>
+      <MealNavigator />
+    </Provider>
   );
 }
 
